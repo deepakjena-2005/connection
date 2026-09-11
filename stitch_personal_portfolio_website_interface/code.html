@@ -588,7 +588,7 @@
           <div>
             <span class="mono-spec" style="display: block; margin-bottom: 8px;">Primary Electronic Mail</span>
             <div class="email-copy-bar">
-              <div class="email-display" id="emailText">deepak.jena@architecturalux.internal</div>
+              <div class="email-display" id="emailText">jenadeepak636@gmail.com</div>
               <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy Email to Clipboard">
                 <span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
                 <span id="copyLabel">Copy</span>
@@ -598,13 +598,13 @@
 
           <!-- Direct Channels Links -->
           <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <a href="https://github.com/deepakjena-2005" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               <span>GitHub Profile</span>
               <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>LinkedIn Dossier</span>
-              <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
+            <a href="mailto:jenadeepak636@gmail.com" class="btn btn-secondary">
+              <span class="material-symbols-outlined" style="font-size: 14px;">mail</span>
+              <span>Direct Email</span>
             </a>
             <a href="#contact" class="btn btn-secondary">
               <span class="material-symbols-outlined" style="font-size: 14px;">calendar_month</span>
@@ -615,22 +615,22 @@
           <div style="height: 1px; background: var(--color-border); margin: var(--space-xs) 0;"></div>
 
           <!-- Structured Brief Transmission Form -->
-          <form class="brief-form" id="contactForm">
+          <form class="brief-form" id="contactForm" method="POST">
             <span class="mono-spec text-ivory" style="font-weight: 600;">Structured Proposal Transmission</span>
 
             <div class="form-group">
               <label class="form-label" for="clientName">Your Name / Organization *</label>
-              <input type="text" id="clientName" class="form-input" placeholder="e.g. Katherine Shaw / Linear Labs" required>
+              <input type="text" id="clientName" name="name" class="form-input" placeholder="e.g. Katherine Shaw / Linear Labs" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="clientEmail">Your Direct Email *</label>
-              <input type="email" id="clientEmail" class="form-input" placeholder="k.shaw@domain.com" required>
+              <input type="email" id="clientEmail" name="email" class="form-input" placeholder="k.shaw@domain.com" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="projectScope">Engagement Type / Scope</label>
-              <select id="projectScope" class="form-select">
+              <select id="projectScope" name="scope" class="form-select">
                 <option value="ds">Design System Architecture &amp; Token Pipeline</option>
                 <option value="banking">Complex Web Application / Financial Core</option>
                 <option value="advisory">Fractional Design Leadership / Heuristic Audit</option>
@@ -640,10 +640,10 @@
 
             <div class="form-group">
               <label class="form-label" for="projectMessage">Parameters &amp; Timeline Details *</label>
-              <textarea id="projectMessage" class="form-textarea" rows="4" placeholder="Briefly outline your team constraints, target velocity, and core technical problems to be addressed." required></textarea>
+              <textarea id="projectMessage" name="message" class="form-textarea" rows="4" placeholder="Briefly outline your team constraints, target velocity, and core technical problems to be addressed." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-terracotta">
+            <button type="submit" class="btn btn-terracotta" id="transmitBtn">
               <span>Transmit Engagement Proposal</span>
               <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
             </button>
@@ -651,7 +651,7 @@
             <!-- Status Banner -->
             <div class="form-status-banner" id="formSuccess">
               <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">check_circle</span>
-              <span>Transmission recorded. A calibrated response will be dispatched within 24 hours.</span>
+              <span>Transmission sent to jenadeepak636@gmail.com. Response will be dispatched within 24 hours.</span>
             </div>
           </form>
         </div>

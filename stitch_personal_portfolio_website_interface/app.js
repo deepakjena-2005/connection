@@ -303,7 +303,7 @@ interface FieldDispatchState {
   });
 
   // -------------------------------------------------------------
-  // CONTACT TRANSMISSION FORM
+  // CONTACT TRANSMISSION FORM (DISPATCH TO jenadeepak636@gmail.com)
   // -------------------------------------------------------------
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
@@ -312,37 +312,85 @@ interface FieldDispatchState {
     // Restore draft if saved
     const savedName = localStorage.getItem('draft_name');
     const savedEmail = localStorage.getItem('draft_email');
-    if (savedName) document.getElementById('clientName').value = savedName;
-    if (savedEmail) document.getElementById('clientEmail').value = savedEmail;
+    if (savedName && document.getElementById('clientName')) document.getElementById('clientName').value = savedName;
+    if (savedEmail && document.getElementById('clientEmail')) document.getElementById('clientEmail').value = savedEmail;
 
     contactForm.addEventListener('input', (e) => {
       if (e.target.id === 'clientName') localStorage.setItem('draft_name', e.target.value);
       if (e.target.id === 'clientEmail') localStorage.setItem('draft_email', e.target.value);
     });
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       playTactileClick(1000);
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Transmitting Telemetry...</span><span class="material-symbols-outlined animate-spin">sync</span>`;
+      const clientName = document.getElementById('clientName')?.value.trim() || 'Anonymous Client';
+      const clientEmail = document.getElementById('clientEmail')?.value.trim() || 'Not provided';
+      const scopeElem = document.getElementById('projectScope');
+      const projectScopeText = scopeElem ? scopeElem.options[scopeElem.selectedIndex].text : 'General Inquiry';
+      const projectMessage = document.getElementById('projectMessage')?.value.trim() || '';
 
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Transmitting to jenadeepak636@gmail.com...</span><span class="material-symbols-outlined animate-spin">sync</span>`;
+
+      const payload = {
+        name: clientName,
+        email: clientEmail,
+        scope: projectScopeText,
+        message: projectMessage,
+        _subject: `New Portfolio Proposal Transmission from ${clientName}`
+      };
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/jenadeepak636@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          if (formSuccess) {
+            formSuccess.innerHTML = `
+              <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">check_circle</span>
+              <span>Transmission recorded and sent to jenadeepak636@gmail.com. Response will be dispatched within 24 hours.</span>
+            `;
+            formSuccess.classList.add('visible');
+            contactForm.reset();
+            localStorage.removeItem('draft_name');
+            localStorage.removeItem('draft_email');
+            setTimeout(() => {
+              formSuccess.classList.remove('visible');
+            }, 8000);
+          }
+        } else {
+          throw new Error('Endpoint returned non-OK status');
+        }
+      } catch (err) {
+        console.warn('Direct transmission API encountered an issue, launching mail fallback:', err);
+        const subject = encodeURIComponent(`Portfolio Brief: ${clientName} — ${projectScopeText}`);
+        const body = encodeURIComponent(`Name: ${clientName}\nEmail: ${clientEmail}\nScope: ${projectScopeText}\n\nProject Details:\n${projectMessage}`);
+        window.open(`mailto:jenadeepak636@gmail.com?subject=${subject}&body=${body}`, '_blank');
+
         if (formSuccess) {
+          formSuccess.innerHTML = `
+            <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">mark_email_read</span>
+            <span>Transmission formatted for jenadeepak636@gmail.com. Please dispatch via your mail client.</span>
+          `;
           formSuccess.classList.add('visible');
-          contactForm.reset();
-          localStorage.removeItem('draft_name');
-          localStorage.removeItem('draft_email');
           setTimeout(() => {
             formSuccess.classList.remove('visible');
-          }, 7000);
+          }, 8000);
         }
-      }, 1000);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     });
   }
 

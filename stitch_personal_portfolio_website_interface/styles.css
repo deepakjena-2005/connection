@@ -404,6 +404,16 @@ button, input, select, textarea {
   100% { opacity: 0.4; transform: scale(0.9); }
 }
 
+.animate-spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ==========================================================================
    PRIMARY LAYOUT ARCHITECTURE (12-Column Desktop Grid)
    ========================================================================== */
