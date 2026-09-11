@@ -182,15 +182,62 @@ interface FieldDispatchState {
   }
 
   // -------------------------------------------------------------
-  // COPY EMAIL TO CLIPBOARD
+  // ELECTRONIC MAIL SELECTOR & DYNAMIC ROUTING
   // -------------------------------------------------------------
+  const emailSelect = document.getElementById('emailSelect');
+  const customEmailGroup = document.getElementById('customEmailGroup');
+  const customEmailInput = document.getElementById('customEmailInput');
+  const emailCategoryBadge = document.getElementById('emailCategoryBadge');
+  const directMailLink = document.getElementById('directMailLink');
   const copyBtn = document.getElementById('copyBtn');
   const copyLabel = document.getElementById('copyLabel');
   const emailText = document.getElementById('emailText');
 
+  function getActiveTargetEmail() {
+    if (!emailSelect) return 'jenadeepak636@gmail.com';
+    if (emailSelect.value === 'custom') {
+      const custom = customEmailInput ? customEmailInput.value.trim() : '';
+      return custom || 'jenadeepak636@gmail.com';
+    }
+    return emailSelect.value;
+  }
+
+  function updateEmailDestination() {
+    if (!emailSelect || !emailText) return;
+    const selectedOption = emailSelect.options[emailSelect.selectedIndex];
+    const category = selectedOption ? selectedOption.getAttribute('data-category') : '';
+
+    if (emailSelect.value === 'custom') {
+      if (customEmailGroup) customEmailGroup.style.display = 'block';
+      const customVal = customEmailInput ? customEmailInput.value.trim() : '';
+      emailText.innerText = customVal || 'Type custom destination above...';
+      if (emailCategoryBadge) emailCategoryBadge.innerText = '[ Custom Recipient ]';
+      if (directMailLink) directMailLink.href = customVal ? `mailto:${customVal}` : 'mailto:jenadeepak636@gmail.com';
+    } else {
+      if (customEmailGroup) customEmailGroup.style.display = 'none';
+      const activeEmail = emailSelect.value;
+      emailText.innerText = activeEmail;
+      if (emailCategoryBadge) emailCategoryBadge.innerText = `[ ${category || 'Direct'} ]`;
+      if (directMailLink) directMailLink.href = `mailto:${activeEmail}`;
+    }
+  }
+
+  if (emailSelect) {
+    emailSelect.addEventListener('change', () => {
+      playTactileClick(1100);
+      updateEmailDestination();
+    });
+  }
+
+  if (customEmailInput) {
+    customEmailInput.addEventListener('input', () => {
+      updateEmailDestination();
+    });
+  }
+
   if (copyBtn && emailText) {
     copyBtn.addEventListener('click', () => {
-      const email = emailText.innerText.trim();
+      const email = getActiveTargetEmail();
       playTactileClick(900);
       navigator.clipboard.writeText(email).then(() => {
         copyLabel.innerText = 'COPIED';
@@ -333,8 +380,10 @@ interface FieldDispatchState {
       const projectScopeText = scopeElem ? scopeElem.options[scopeElem.selectedIndex].text : 'General Inquiry';
       const projectMessage = document.getElementById('projectMessage')?.value.trim() || '';
 
+      const targetEmail = getActiveTargetEmail();
+
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Transmitting to jenadeepak636@gmail.com...</span><span class="material-symbols-outlined animate-spin">sync</span>`;
+      submitBtn.innerHTML = `<span>Transmitting to ${targetEmail}...</span><span class="material-symbols-outlined animate-spin">sync</span>`;
 
       const payload = {
         name: clientName,
@@ -345,7 +394,7 @@ interface FieldDispatchState {
       };
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/jenadeepak636@gmail.com', {
+        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -358,7 +407,7 @@ interface FieldDispatchState {
           if (formSuccess) {
             formSuccess.innerHTML = `
               <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">check_circle</span>
-              <span>Transmission recorded and sent to jenadeepak636@gmail.com. Response will be dispatched within 24 hours.</span>
+              <span>Transmission recorded and dispatched to ${targetEmail}. Response will be sent within 24 hours.</span>
             `;
             formSuccess.classList.add('visible');
             contactForm.reset();
@@ -375,12 +424,12 @@ interface FieldDispatchState {
         console.warn('Direct transmission API encountered an issue, launching mail fallback:', err);
         const subject = encodeURIComponent(`Portfolio Brief: ${clientName} — ${projectScopeText}`);
         const body = encodeURIComponent(`Name: ${clientName}\nEmail: ${clientEmail}\nScope: ${projectScopeText}\n\nProject Details:\n${projectMessage}`);
-        window.open(`mailto:jenadeepak636@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
 
         if (formSuccess) {
           formSuccess.innerHTML = `
             <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">mark_email_read</span>
-            <span>Transmission formatted for jenadeepak636@gmail.com. Please dispatch via your mail client.</span>
+            <span>Transmission formatted for ${targetEmail}. Please dispatch via your mail client.</span>
           `;
           formSuccess.classList.add('visible');
           setTimeout(() => {

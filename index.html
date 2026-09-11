@@ -585,7 +585,26 @@
 
         <div class="contact-module">
           <div>
-            <span class="mono-spec" style="display: block; margin-bottom: 8px;">Primary Electronic Mail</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="mono-spec">Primary Electronic Mail Destination</span>
+              <span class="mono-spec text-primary-accent" id="emailCategoryBadge" style="font-size: 10px;">[ Personal / Direct ]</span>
+            </div>
+
+            <!-- Email Selector Dropdown -->
+            <div class="form-group" style="margin-bottom: 10px;">
+              <select id="emailSelect" class="form-select" style="font-family: var(--font-mono); font-size: 12.5px; background: var(--color-canvas); border: 1px solid var(--color-border); padding: 9px 12px; color: var(--color-ivory);">
+                <option value="jenadeepak636@gmail.com" data-category="Personal / Direct" selected>jenadeepak636@gmail.com — (Personal Primary Gmail)</option>
+                <option value="25cse061.deepakjena@giet.edu" data-category="Academic / Institutional">25cse061.deepakjena@giet.edu — (GIET Academic / Research)</option>
+                <option value="deepakjena2005@gmail.com" data-category="Secondary / Project Inbox">deepakjena2005@gmail.com — (Secondary Project Inbox)</option>
+                <option value="custom" data-category="Custom Recipient">Custom Destination (Type any email address)...</option>
+              </select>
+            </div>
+
+            <!-- Custom Email Input (shown if Custom Destination is selected) -->
+            <div id="customEmailGroup" style="display: none; margin-bottom: 10px;">
+              <input type="email" id="customEmailInput" class="form-input" placeholder="Type custom target email (e.g. name@example.com)" style="font-family: var(--font-mono); font-size: 12.5px;">
+            </div>
+
             <div class="email-copy-bar">
               <div class="email-display" id="emailText">jenadeepak636@gmail.com</div>
               <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy Email to Clipboard">
@@ -601,7 +620,7 @@
               <span>GitHub Profile</span>
               <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
             </a>
-            <a href="mailto:jenadeepak636@gmail.com" class="btn btn-secondary">
+            <a href="mailto:jenadeepak636@gmail.com" id="directMailLink" class="btn btn-secondary">
               <span class="material-symbols-outlined" style="font-size: 14px;">mail</span>
               <span>Direct Email</span>
             </a>
