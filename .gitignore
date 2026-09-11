@@ -1,0 +1,15 @@
+# Binary and installer files (GitHub rejects files > 100MB)
+*.exe
+*.msi
+*.apk
+*.zip
+*.iso
+
+# Android tools & decompiled code
+jadx-gui-1.5.6-with-jre-win/
+1.5.6 source code/
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store

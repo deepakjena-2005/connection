@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Deepak Jena — Staff UI Architect & Systems Engineer</title>
+  <meta name="description" content="Senior Product Designer and Frontend Systems Engineer crafting deterministic digital interfaces, design token infrastructure, and mission-critical enterprise systems.">
+  <meta name="theme-color" content="#111418">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Deepak Jena — Staff UI Architect & Systems Engineer">
+  <meta property="og:description" content="Architectural portfolio and engineering monographs. High-contrast typography, strict layout discipline, sub-120ms velocity.">
+  
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP UTILITY HEADER
+       ======================================================================== -->
+  <header class="site-header" id="topHeader">
+    <div class="header-container">
+      <div class="brand-mark">
+        <div class="brand-monogram">DJ</div>
+        <div class="brand-title">
+          <span class="title-primary">Deepak Jena</span>
+          <span class="title-secondary">Staff UI Architect</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live Status Beacon -->
+        <div class="status-beacon">
+          <span class="status-dot"></span>
+          <span class="btn-text-hide">Available for Q3/Q4 Advisory</span>
+          <span class="mono-spec min-[640px]:hidden">Available</span>
+        </div>
+
+        <!-- Command Palette Trigger -->
+        <button class="btn btn-secondary btn-icon-only" id="cmdToggleBtn" title="Open Command Palette (Ctrl+K)" aria-label="Open Command Palette">
+          <span class="material-symbols-outlined" style="font-size: 18px;">terminal</span>
+        </button>
+
+        <!-- Tactile Audio Toggle -->
+        <button class="btn btn-secondary btn-icon-only" id="soundToggleBtn" title="Toggle Tactile Mechanical Sound" aria-label="Toggle Sound Feedback">
+          <span class="material-symbols-outlined" style="font-size: 18px;">volume_off</span>
+        </button>
+
+        <!-- Scale / Density Toggle -->
+        <button class="btn btn-secondary" id="densityToggleBtn" title="Toggle Page Scale: Standard (100%), Compact (85%), Dense (75%)" aria-label="Toggle Page Scale">
+          <span class="material-symbols-outlined" style="font-size: 16px;">zoom_out</span>
+          <span id="densityLabel" class="mono-spec" style="font-size: 10px;">Scale: 85%</span>
+        </button>
+
+        <!-- Direct Contact Button -->
+        <a href="#contact" class="btn btn-primary btn-text-hide">
+          <span>Direct Transmission</span>
+          <span class="material-symbols-outlined" style="font-size: 16px;">north_east</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN APPLICATION LAYOUT (12-Column Grid Split)
+       ======================================================================== -->
+  <div class="site-layout">
+
+    <!-- ----------------------------------------------------------------------
+         LEFT STICKY BIOGRAPHICAL & NAVIGATION RAIL (4 Columns)
+         ---------------------------------------------------------------------- -->
+    <aside class="sidebar-rail">
+      <div class="identity-block">
+        <span class="role-badge">[ Specimen: Practitioner Index ]</span>
+        <h1 class="practitioner-name">Deepak Jena</h1>
+        <p class="practitioner-bio">
+          Staff Product Designer &amp; Frontend Systems Engineer operating at the intersection of deterministic engineering and rigorous typographic craft. Translating high-stakes system requirements into quiet, uncompromising product environments.
+        </p>
+
+        <!-- Navigation Ledger -->
+        <nav class="index-nav" aria-label="Primary Site Navigation">
+          <a href="#monograph" class="nav-item active">
+            <span>01 // Monograph</span>
+            <span class="nav-num">Thesis</span>
+          </a>
+          <a href="#skills" class="nav-item">
+            <span>02 // Capabilities</span>
+            <span class="nav-num">Matrix</span>
+          </a>
+          <a href="#projects" class="nav-item">
+            <span>03 // Selected Works</span>
+            <span class="nav-num">Case Studies</span>
+          </a>
+          <a href="#education" class="nav-item">
+            <span>04 // Pedagogy</span>
+            <span class="nav-num">Academia</span>
+          </a>
+          <a href="#achievements" class="nav-item">
+            <span>05 // Honors</span>
+            <span class="nav-num">Patents &amp; IP</span>
+          </a>
+          <a href="#contact" class="nav-item">
+            <span>06 // Transmission</span>
+            <span class="nav-num">Contact</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- System Coordinates & Telemetry -->
+      <div class="sidebar-footer">
+        <div class="system-telemetry">
+          <div class="telemetry-row">
+            <span>Base:</span> <span>London / UTC+1</span>
+          </div>
+          <div class="telemetry-row">
+            <span>Standard:</span> <span>WCAG 2.1 AAA</span>
+          </div>
+          <div class="telemetry-row">
+            <span>Framework:</span> <span>Deterministic</span>
+          </div>
+          <div class="telemetry-row">
+            <span>Grid:</span> <span>12-Col Modular</span>
+          </div>
+        </div>
+        <div class="mono-spec" style="font-size: 9px; opacity: 0.6; margin-top: 4px;">
+          Press <kbd style="background: #20262d; padding: 1px 4px; border: 1px solid #2c343d;">Ctrl+K</kbd> to launch console
+        </div>
+      </div>
+    </aside>
+
+    <!-- ----------------------------------------------------------------------
+         RIGHT CONTENT STREAM (8 Columns)
+         ---------------------------------------------------------------------- -->
+    <main class="content-stream">
+
+      <!-- SECTION 01: MONOGRAPH & THESIS -->
+      <section class="content-section" id="monograph">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 01 / Monograph ]</span>
+          <span class="taxonomy-marker">Evolution &amp; Architectural Thesis</span>
+        </div>
+
+        <h2 class="headline-xl section-headline">From deterministic systems to the human substrate.</h2>
+
+        <div class="hero-statement">
+          <p>
+            "Software is not decoration overlaid on code, but an interconnected system of state machines rendered visible. I prioritize measured reading cadences over ambient novelty, strict typographic hierarchy over decorative excess, and sub-second velocity over ornamental friction."
+          </p>
+        </div>
+
+        <div class="body-lg" style="margin-bottom: var(--space-md);">
+          I began my career designing distributed microservices and database schemas. That background forever altered my perspective on interface architecture: every button click is a mutation, every screen transition a state transition, and every delay a breach of user trust.
+        </div>
+
+        <!-- Tripartite Architectural Principles -->
+        <div class="principles-matrix">
+          <div class="principle-cell">
+            <span class="principle-index">01</span>
+            <div>
+              <h3 class="headline-sm text-ivory" style="margin-bottom: 4px;">Structural Reduction of Noise</h3>
+              <p class="body-sm">
+                Eliminate every pixel, line, gradient, and glow that fails to directly serve information retrieval, situational awareness, or operational user action.
+              </p>
+            </div>
+          </div>
+          <div class="principle-cell">
+            <span class="principle-index">02</span>
+            <div>
+              <h3 class="headline-sm text-ivory" style="margin-bottom: 4px;">Determinism Over Guesswork</h3>
+              <p class="body-sm">
+                Tokenize every decision into reproducible primitives shared symmetrically between Figma design variables and production continuous-integration codebases.
+              </p>
+            </div>
+          </div>
+          <div class="principle-cell">
+            <span class="principle-index">03</span>
+            <div>
+              <h3 class="headline-sm text-ivory" style="margin-bottom: 4px;">Measurable Computational Empathy</h3>
+              <p class="body-sm">
+                Design explicitly for the operator navigating dense tables on constrained hardware under direct sunlight with 3G latency conditions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hairline-separator">
+
+      <!-- SECTION 02: CAPABILITIES MATRIX -->
+      <section class="content-section" id="skills">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 02 / Capabilities ]</span>
+          <span class="taxonomy-marker">Operational Matrix &amp; Disciplines</span>
+        </div>
+
+        <h2 class="headline-lg section-headline">Technical proficiencies &amp; methodologies.</h2>
+
+        <!-- Interactive Discipline Filter -->
+        <div class="filter-bar" role="toolbar" aria-label="Filter Capabilities">
+          <button class="filter-btn active" data-filter="all">All Disciplines</button>
+          <button class="filter-btn" data-filter="arch">Product Architecture</button>
+          <button class="filter-btn" data-filter="frontend">Frontend Engineering</button>
+          <button class="filter-btn" data-filter="systems">Systems &amp; Tooling</button>
+          <button class="filter-btn" data-filter="leadership">Design Leadership</button>
+        </div>
+
+        <!-- Capability Cards Grid -->
+        <div class="capabilities-grid">
+          <!-- Card 1 -->
+          <div class="capability-card" data-discipline="arch">
+            <div>
+              <div class="capability-header">
+                <span class="mono-spec text-ivory" style="font-weight: 600;">Product Architecture</span>
+                <span class="mono-spec">DISC 01</span>
+              </div>
+              <p class="body-sm" style="margin-bottom: var(--space-sm);">
+                Designing cohesive user topology for high-density tools, multi-step transaction flows, and mission-critical workflows.
+              </p>
+            </div>
+            <div class="capability-chips">
+              <span class="mono-tag">Complex Info Systems</span>
+              <span class="mono-tag">State Machine Design</span>
+              <span class="mono-tag">Task Flow Topology</span>
+              <span class="mono-tag">Data Modeling UX</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="capability-card" data-discipline="frontend">
+            <div>
+              <div class="capability-header">
+                <span class="mono-spec text-ivory" style="font-weight: 600;">Frontend Engineering</span>
+                <span class="mono-spec">DISC 02</span>
+              </div>
+              <p class="body-sm" style="margin-bottom: var(--space-sm);">
+                Building low-latency client codebases with robust type systems, WCAG AAA accessibility, and deterministic test coverage.
+              </p>
+            </div>
+            <div class="capability-chips">
+              <span class="mono-tag active">TypeScript 5</span>
+              <span class="mono-tag">React / Next.js 14</span>
+              <span class="mono-tag">Tailwind Engine</span>
+              <span class="mono-tag">WebSockets</span>
+              <span class="mono-tag">WAI-ARIA 1.2</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="capability-card" data-discipline="systems">
+            <div>
+              <div class="capability-header">
+                <span class="mono-spec text-ivory" style="font-weight: 600;">Systems &amp; Tooling</span>
+                <span class="mono-spec">DISC 03</span>
+              </div>
+              <p class="body-sm" style="margin-bottom: var(--space-sm);">
+                Multi-brand design token pipelines from Figma REST APIs to automated GitHub Actions and multi-platform compilation.
+              </p>
+            </div>
+            <div class="capability-chips">
+              <span class="mono-tag">Style Dictionary</span>
+              <span class="mono-tag">Figma Variables Sync</span>
+              <span class="mono-tag">Storybook Docs</span>
+              <span class="mono-tag">Chromatic CI/CD</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="capability-card" data-discipline="leadership">
+            <div>
+              <div class="capability-header">
+                <span class="mono-spec text-ivory" style="font-weight: 600;">Design Leadership</span>
+                <span class="mono-spec">DISC 04</span>
+              </div>
+              <p class="body-sm" style="margin-bottom: var(--space-sm);">
+                Aligning executive product roadmaps with engineering velocity through system governance and heuristic audits.
+              </p>
+            </div>
+            <div class="capability-chips">
+              <span class="mono-tag">System Governance</span>
+              <span class="mono-tag">Heuristic Audits</span>
+              <span class="mono-tag">Staff Mentorship</span>
+              <span class="mono-tag">Cross-Org Strategy</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hairline-separator">
+
+      <!-- SECTION 03: SELECTED WORKS / CASE STUDIES -->
+      <section class="content-section" id="projects">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 03 / Selected Works ]</span>
+          <span class="taxonomy-marker">Flagship Production Artefacts</span>
+        </div>
+
+        <h2 class="headline-xl section-headline">High-leverage enterprise engagements.</h2>
+        <p class="body-md" style="margin-bottom: var(--space-xl);">
+          Rigorous case documentation of multi-platform design system architectures, zero-to-one transformations, and real-time execution engines.
+        </p>
+
+        <div class="projects-container">
+
+          <!-- PROJECT 1: FINTECH CORE -->
+          <article class="project-card">
+            <div class="project-visual-viewport">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaihWuKvHrbMAEhFoW65L794PrWE9I3qD_VNdW9ytXOMLKkZMN8_ACGz1LlIRXccr165JRN5qVPQUCrmnFAPtuLlHMOlRwpjzCl2t5BMPU2R-JKcEsQ__cvMLphf2jX0dVzA5mjPRbr2F_6I-HShx76yVl4Xtrl8qfyPG23K-Sh1E8egrDx4UQZVYr825TCX--2a9WK4D0rN11NRZjPRnp6xq7bAB7m4x07XRGvuqzvrFcMzGX3x01kg" alt="Fintech Core Banking Overhaul Interface" loading="lazy">
+              <div class="badge-overlay-top-left">CASE 001 // FINTECH CORE</div>
+              <div class="badge-overlay-bottom-right mono-spec">2023 — 2024</div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title-row">
+                <div class="project-org">
+                  <span class="project-org-square"></span>
+                  <span>Tier-1 Challenger Bank (UK / Global)</span>
+                </div>
+                <h3 class="headline-lg text-ivory">Fintech Core Banking Overhaul &amp; Settlement Mesh</h3>
+              </div>
+
+              <p class="body-md">
+                Complete architectural reimagining of high-frequency settlement dashboards and multi-currency ledger onboarding. Replaced a fragmented seven-step regulatory verification journey with an instantaneous, progressive ledger binding flow.
+              </p>
+
+              <!-- Metrics Specimen Strip -->
+              <div class="metrics-strip">
+                <div class="metric-item">
+                  <span class="metric-val">-34%</span>
+                  <span class="metric-label">Drop-off Velocity</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">&lt; 120ms</span>
+                  <span class="metric-label">Ledger Sync Rate</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">99.99%</span>
+                  <span class="metric-label">Execution Accuracy</span>
+                </div>
+              </div>
+
+              <!-- Metadata Spec Ledger -->
+              <div class="spec-ledger-table">
+                <div class="spec-ledger-row">
+                  <span>Role:</span>
+                  <span>Lead Staff Designer &amp; UI Architect</span>
+                </div>
+                <div class="spec-ledger-row">
+                  <span>Stack:</span>
+                  <span>Next.js 14, WebSockets, Tailwind, Zod, Radix</span>
+                </div>
+              </div>
+
+              <div class="project-action-bar">
+                <button class="btn btn-secondary" data-inspect-case="case-001" style="flex: 1;">
+                  <span>Inspect Case Documentation</span>
+                  <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: DESIGN TOKEN ARCHITECTURE -->
+          <article class="project-card">
+            <div class="project-visual-viewport">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYv_QJv72u1XvBUpWhjaAiXF1yeuVn3hLZXzZlGns7fmsbfGDBcAU9jH9V_3LKo8aP0H9ONfuDoVX8GspfjJcMHKaZrnKTfQ7MDRWBHZrIB3WXScgAtuklNSy-_FzmwKSHjeRW1CcJZF_117snUaC9z-qxWQP0sOWadH-kLifSgLrvUBejX5uiZeKu955PeOmcEsy_jjfPiNdGIDt4W-dJj_gNLubgsG2HiA69-snQi6Hmu2jdQrkw5g" alt="Design Token Architecture Interface Diagram" loading="lazy">
+              <div class="badge-overlay-top-left">CASE 002 // INFRASTRUCTURE</div>
+              <div class="badge-overlay-bottom-right mono-spec">2023</div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title-row">
+                <div class="project-org">
+                  <span class="project-org-square" style="background-color: var(--color-amber);"></span>
+                  <span>Enterprise SaaS Platform</span>
+                </div>
+                <h3 class="headline-lg text-ivory">Design Token Architecture &amp; Cross-Platform Compiler</h3>
+              </div>
+
+              <p class="body-md">
+                Engineered an end-to-end automated token compiler translating multi-brand themes from Figma Studio into platform-native primitives across React web, iOS Swift, and Android Jetpack Compose without human translation discrepancies.
+              </p>
+
+              <!-- Metrics Specimen Strip -->
+              <div class="metrics-strip">
+                <div class="metric-item">
+                  <span class="metric-val">45+</span>
+                  <span class="metric-label">Engineers Synchronized</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">Zero</span>
+                  <span class="metric-label">Manual Translation Faults</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">&lt; 3m</span>
+                  <span class="metric-label">Pipeline Execution</span>
+                </div>
+              </div>
+
+              <!-- Metadata Spec Ledger -->
+              <div class="spec-ledger-table">
+                <div class="spec-ledger-row">
+                  <span>Scope:</span>
+                  <span>Cross-Platform Token Infrastructure (Web, iOS, Android)</span>
+                </div>
+                <div class="spec-ledger-row">
+                  <span>Core Stack:</span>
+                  <span>Style Dictionary, GitHub Actions, AST Parser, TypeScript</span>
+                </div>
+              </div>
+
+              <div class="project-action-bar">
+                <button class="btn btn-secondary" data-inspect-case="case-002" style="flex: 1;">
+                  <span>Inspect Architecture Spec</span>
+                  <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: HEALTHCARE LOGISTICS FLEET DISPATCH -->
+          <article class="project-card">
+            <div class="project-visual-viewport">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt0y9MGOBNqAYxf12vULtHdVO2jE65_Qz43W38mJ9kDtH4bJVoAEyWtdt3x-0OZe8oQ0dgVSa4gKJDBYA0zdcpPEgv6OpW8J1YNHg5KReEHqQBZ6SsfScuce8pzYjpq2cVygJ89VcLIqER0WarhwxN3w07GLUXGdlB88bSyQGMPrFlJkenrYcsxvqYrmWfZrhqkAZJG3m24irB_Ofbq4B09QO02trbtijuhvfl6DLOXdggQastdzwreQ" alt="Healthcare Logistics Tactical Interface" loading="lazy">
+              <div class="badge-overlay-top-left">CASE 003 // FIELD HARDWARE</div>
+              <div class="badge-overlay-bottom-right mono-spec">2022 — 2023</div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title-row">
+                <div class="project-org">
+                  <span class="project-org-square" style="background-color: var(--color-emerald);"></span>
+                  <span>Emergency Healthcare Fleet Logistics</span>
+                </div>
+                <h3 class="headline-lg text-ivory">Healthcare Logistics Tactical Fleet Dispatch</h3>
+              </div>
+
+              <p class="body-md">
+                A touch-first critical mission control interface for emergency response couriers. Designed specifically to eliminate mis-taps under severe vehicle vibration, medical glove usage, and direct sunlight glare while reducing dispatch routing lag.
+              </p>
+
+              <!-- Metrics Specimen Strip -->
+              <div class="metrics-strip">
+                <div class="metric-item">
+                  <span class="metric-val">&lt; 850ms</span>
+                  <span class="metric-label">Dispatch Ack Rate</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">Zero</span>
+                  <span class="metric-label">Reported Route Errors</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">56px</span>
+                  <span class="metric-label">Min Hitbox (WCAG AAA)</span>
+                </div>
+              </div>
+
+              <!-- Metadata Spec Ledger -->
+              <div class="spec-ledger-table">
+                <div class="spec-ledger-row">
+                  <span>Ergonomics:</span>
+                  <span>56px Hit Targets, High-Contrast Sunlight Mode</span>
+                </div>
+                <div class="spec-ledger-row">
+                  <span>Environment:</span>
+                  <span>Ruggedized Android Tablets, Offline PWA Service Workers</span>
+                </div>
+              </div>
+
+              <div class="project-action-bar">
+                <button class="btn btn-secondary" data-inspect-case="case-003" style="flex: 1;">
+                  <span>Inspect Telemetry Flow</span>
+                  <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <hr class="hairline-separator">
+
+      <!-- SECTION 04: ACADEMIC FOUNDATION & PEDAGOGY -->
+      <section class="content-section" id="education">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 04 / Pedagogy ]</span>
+          <span class="taxonomy-marker">Academic Grounding &amp; Research</span>
+        </div>
+
+        <h2 class="headline-lg section-headline">Rigorous academic foundation.</h2>
+
+        <div class="timeline-stack">
+          <!-- Degree 1 -->
+          <div class="timeline-card">
+            <div class="card-topline">
+              <span class="year-badge">2016 — 2018</span>
+              <span class="mono-spec text-ivory">First Class Honours (Distinction)</span>
+            </div>
+            <h3 class="headline-sm text-ivory">M.Sc. Human-Computer Interaction &amp; Cognitive Ergonomics</h3>
+            <span class="mono-spec">University College London (UCL)</span>
+            <div class="dissertation-box">
+              <span class="mono-spec" style="display: block; margin-bottom: 2px;">Focus &amp; Dissertation:</span>
+              <p class="body-sm text-ivory">
+                Quantitative latency perception thresholds in dynamic financial visualizations and human cognitive load limits under operational stress.
+              </p>
+            </div>
+          </div>
+
+          <!-- Degree 2 -->
+          <div class="timeline-card">
+            <div class="card-topline">
+              <span class="year-badge">2012 — 2016</span>
+              <span class="mono-spec text-ivory">B.Eng. Computer Science (Distinction)</span>
+            </div>
+            <h3 class="headline-sm text-ivory">B.Sc. Software Engineering &amp; Distributed Systems</h3>
+            <span class="mono-spec">University of Edinburgh</span>
+            <div class="dissertation-box">
+              <span class="mono-spec" style="display: block; margin-bottom: 2px;">Core Modules:</span>
+              <p class="body-sm text-ivory">
+                Algorithmic Complexity, Compilers, Object-Oriented Software Architecture, Real-Time Operating Systems, and Concurrent Data Structures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hairline-separator">
+
+      <!-- SECTION 05: HONORS & VERIFIED IP -->
+      <section class="content-section" id="achievements">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 05 / Honors ]</span>
+          <span class="taxonomy-marker">Peer Recognition &amp; IP Contributions</span>
+        </div>
+
+        <h2 class="headline-lg section-headline">Peer recognitions &amp; IP contributions.</h2>
+
+        <div class="timeline-stack">
+          <!-- Item 1: Patent -->
+          <div class="timeline-card">
+            <div class="card-topline">
+              <span class="year-badge">PATENT CO-INVENTOR</span>
+              <span class="mono-spec">US-2023-019842</span>
+            </div>
+            <h3 class="headline-sm text-ivory">Adaptive Density Layout Algorithms for Tabular Data Stream</h3>
+            <span class="body-sm">United States Patent and Trademark Office — Issued 2023</span>
+          </div>
+
+          <!-- Item 2: Fellowship -->
+          <div class="timeline-card">
+            <div class="card-topline">
+              <span class="year-badge">FELLOWSHIP</span>
+              <span class="mono-spec">2022 COHORT</span>
+            </div>
+            <h3 class="headline-sm text-ivory">Executive Design Leadership Fellow</h3>
+            <span class="body-sm">Design Leaders Academy UK — Selected among 24 European Practitioners</span>
+          </div>
+
+          <!-- Item 3: NN/g Credential -->
+          <div class="timeline-card">
+            <div class="card-topline">
+              <span class="year-badge">NN/G CREDENTIAL</span>
+              <span class="mono-spec">ID: 104928-NNG</span>
+            </div>
+            <h3 class="headline-sm text-ivory">UX Master Certified (Interaction &amp; Architecture)</h3>
+            <span class="body-sm">Nielsen Norman Group — Master Designation with Interaction Specialty</span>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hairline-separator">
+
+      <!-- SECTION 06: TRANSMISSION TERMINAL (CONTACT) -->
+      <section class="content-section" id="contact">
+        <div class="section-ledger-header">
+          <span class="index-marker">[ 06 / Transmission ]</span>
+          <span class="taxonomy-marker">Direct Communication Channels</span>
+        </div>
+
+        <h2 class="headline-xl section-headline">Initiate a project or leadership dialogue.</h2>
+        <p class="body-md" style="margin-bottom: var(--space-xl);">
+          Typically responding within 24 hours to selective consulting briefs, advisory scopes, and executive IC design inquiries.
+        </p>
+
+        <div class="contact-module">
+          <div>
+            <span class="mono-spec" style="display: block; margin-bottom: 8px;">Primary Electronic Mail</span>
+            <div class="email-copy-bar">
+              <div class="email-display" id="emailText">deepak.jena@architecturalux.internal</div>
+              <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy Email to Clipboard">
+                <span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+                <span id="copyLabel">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct Channels Links -->
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>GitHub Profile</span>
+              <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>LinkedIn Dossier</span>
+              <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span class="material-symbols-outlined" style="font-size: 14px;">calendar_month</span>
+              <span>Schedule 30m Advisory</span>
+            </a>
+          </div>
+
+          <div style="height: 1px; background: var(--color-border); margin: var(--space-xs) 0;"></div>
+
+          <!-- Structured Brief Transmission Form -->
+          <form class="brief-form" id="contactForm">
+            <span class="mono-spec text-ivory" style="font-weight: 600;">Structured Proposal Transmission</span>
+
+            <div class="form-group">
+              <label class="form-label" for="clientName">Your Name / Organization *</label>
+              <input type="text" id="clientName" class="form-input" placeholder="e.g. Katherine Shaw / Linear Labs" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="clientEmail">Your Direct Email *</label>
+              <input type="email" id="clientEmail" class="form-input" placeholder="k.shaw@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projectScope">Engagement Type / Scope</label>
+              <select id="projectScope" class="form-select">
+                <option value="ds">Design System Architecture &amp; Token Pipeline</option>
+                <option value="banking">Complex Web Application / Financial Core</option>
+                <option value="advisory">Fractional Design Leadership / Heuristic Audit</option>
+                <option value="contract">Full-Cycle Staff UX/Frontend Contract</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projectMessage">Parameters &amp; Timeline Details *</label>
+              <textarea id="projectMessage" class="form-textarea" rows="4" placeholder="Briefly outline your team constraints, target velocity, and core technical problems to be addressed." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-terracotta">
+              <span>Transmit Engagement Proposal</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
+            </button>
+
+            <!-- Status Banner -->
+            <div class="form-status-banner" id="formSuccess">
+              <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">check_circle</span>
+              <span>Transmission recorded. A calibrated response will be dispatched within 24 hours.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Colophon Note -->
+        <footer style="margin-top: var(--space-3xl); text-align: center; display: flex; flex-direction: column; gap: 4px;">
+          <span class="mono-spec">Personal Monograph &amp; Systems Catalog</span>
+          <span class="mono-spec" style="font-size: 9.5px; opacity: 0.6;">Designed with constructivist restraint. Typeset in Newsreader, JetBrains Mono &amp; Geist.</span>
+        </footer>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: CASE STUDY TECHNICAL INSPECTOR DRAWER
+       ======================================================================== -->
+  <div class="modal-overlay" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="modalCaseTitle">
+    <div class="modal-drawer">
+      <div class="modal-header">
+        <div>
+          <span class="mono-spec text-primary-accent" id="modalCaseNumber">CASE 001 // FINTECH CORE</span>
+          <h3 class="headline-md text-ivory" id="modalCaseTitle" style="margin-top: 2px;">Case Study Title</h3>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Case Deep-Dive Drawer">
+          <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Client & Stack Details -->
+        <div class="modal-spec-grid">
+          <div>
+            <span class="mono-spec">Enterprise Client:</span>
+            <div class="body-sm text-ivory" id="modalCaseOrg" style="font-weight: 500;">Client Name</div>
+          </div>
+          <div>
+            <span class="mono-spec">Practitioner Role:</span>
+            <div class="body-sm text-ivory" id="modalCaseRole" style="font-weight: 500;">Role Title</div>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <span class="mono-spec">Production Stack:</span>
+            <div class="mono-spec text-ivory" id="modalCaseStack" style="margin-top: 2px;">Tech Stack</div>
+          </div>
+        </div>
+
+        <!-- Metrics Strip inside modal -->
+        <div>
+          <span class="mono-spec" style="display: block; margin-bottom: 6px;">Verified Operational Impact:</span>
+          <div class="metrics-strip" id="modalCaseMetrics"></div>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="deep-dive-section">
+          <span class="mono-spec text-primary-accent">[ Problem Formulation ]</span>
+          <p class="body-md" id="modalCaseProblem"></p>
+        </div>
+
+        <!-- Architectural Solution -->
+        <div class="deep-dive-section">
+          <span class="mono-spec text-primary-accent">[ Engineering Solution &amp; Governance ]</span>
+          <p class="body-md" id="modalCaseSolution"></p>
+        </div>
+
+        <!-- Technical Telemetry / Schema Sample -->
+        <div class="deep-dive-section">
+          <span class="mono-spec text-primary-accent">[ Schema Telemetry &amp; Protocol ]</span>
+          <pre class="code-block-spec"><code id="modalCaseCode"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       COMMAND PALETTE MODAL (Ctrl+K)
+       ======================================================================== -->
+  <div class="cmd-palette-overlay" id="cmdPalette" role="dialog" aria-modal="true">
+    <div class="cmd-palette-box">
+      <div class="cmd-input-row">
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 18px; margin-right: 8px;">search</span>
+        <input type="text" class="cmd-input" id="cmdInput" placeholder="Type a section, case study, or action..." autocomplete="off">
+        <span class="mono-spec" style="font-size: 9px; opacity: 0.7;">ESC to exit</span>
+      </div>
+      <div class="cmd-list" id="cmdList"></div>
+      <div class="cmd-footer">
+        <span>Navigation Console</span>
+        <span>Use Arrow Keys or Click</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MOBILE BOTTOM NAVIGATION
+       ======================================================================== -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Bottom Navigation">
+    <div class="tab-items">
+      <a href="#monograph" class="mobile-tab active" data-path="monograph">
+        <span class="material-symbols-outlined">fingerprint</span>
+        <span>Thesis</span>
+      </a>
+      <a href="#skills" class="mobile-tab" data-path="skills">
+        <span class="material-symbols-outlined">tune</span>
+        <span>Matrix</span>
+      </a>
+      <a href="#projects" class="mobile-tab" data-path="projects">
+        <span class="material-symbols-outlined">terminal</span>
+        <span>Works</span>
+      </a>
+      <a href="#education" class="mobile-tab" data-path="education">
+        <span class="material-symbols-outlined">school</span>
+        <span>Pedagogy</span>
+      </a>
+      <a href="#contact" class="mobile-tab" data-path="contact">
+        <span class="material-symbols-outlined">mail</span>
+        <span>Touch</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="../app.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

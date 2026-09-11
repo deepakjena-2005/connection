@@ -1,0 +1,49 @@
+1.Package name: 
+   jakhar.aseem.diva
+
+2.version information
+   android:versionCode="1"
+   android:versionName="1.0"
+   platformBuildVersionCode="23"
+   platformBuildVersionName="6.0-2166767"
+   android:minSdkVersion="15"
+   android:targetSdkVersion="23"
+
+3.request permission
+   android.permission.WRITE_EXTERNAL_STORAGE
+   android.permission.READ_EXTERNAL_STORAGE
+   android.permission.INTERNET
+
+4.activities
+   jakhar.aseem.diva.InsecureDataStorage2Activity
+   jakhar.aseem.diva.InsecureDataStorage3Activity
+   jakhar.aseem.diva.InsecureDataStorage4Activity
+   jakhar.aseem.diva.SQLInjectionActivity
+   jakhar.aseem.diva.InputValidation2URISchemeActivity
+   jakhar.aseem.diva.AccessControl1Activity
+   jakhar.aseem.diva.APICredsActivity
+   jakhar.aseem.diva.AccessControl2Activity
+   jakhar.aseem.diva.APICreds2Activity
+   jakhar.aseem.diva.AccessControl3Activity
+   jakhar.aseem.diva.Hardcode2Activity
+   jakhar.aseem.diva.AccessControl3NotesActivity
+   jakhar.aseem.diva.InputValidation3Activity
+
+5.services
+   no services
+
+6.boardcast receivers
+   not present
+
+7.content provider
+   android:name="jakhar.aseem.diva.NotesProvider"
+   android:enabled="true"
+   android:exported="true"
+   android:authorities="jakhar.aseem.diva.provider.notesprovider"
+
+8.exported component
+   android exported =true
+
+   jakhar.aseem.diva.action.VIEW_CREDS
+   jakhar.aseem.diva.action.VIEW_CREDS2
+   
