@@ -350,10 +350,11 @@ interface FieldDispatchState {
   });
 
   // -------------------------------------------------------------
-  // CONTACT TRANSMISSION FORM (DISPATCH TO jenadeepak636@gmail.com)
+  // CONTACT TRANSMISSION FORM (DISPATCH THROUGH MAKE.COM)
   // -------------------------------------------------------------
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
+  const makeWebhookUrl = 'https://hook.us2.make.com/m2fyjegc17711s91v18es7tvvm9kbw7f';
 
   if (contactForm) {
     // Restore draft if saved
@@ -377,6 +378,7 @@ interface FieldDispatchState {
       const clientName = document.getElementById('clientName')?.value.trim() || 'Anonymous Client';
       const clientEmail = document.getElementById('clientEmail')?.value.trim() || 'Not provided';
       const scopeElem = document.getElementById('projectScope');
+      const projectScope = scopeElem ? scopeElem.value : 'general';
       const projectScopeText = scopeElem ? scopeElem.options[scopeElem.selectedIndex].text : 'General Inquiry';
       const projectMessage = document.getElementById('projectMessage')?.value.trim() || '';
 
@@ -388,26 +390,30 @@ interface FieldDispatchState {
       const payload = {
         name: clientName,
         email: clientEmail,
+        recipient: targetEmail,
+        scopeValue: projectScope,
         scope: projectScopeText,
         message: projectMessage,
-        _subject: `New Portfolio Proposal Transmission from ${clientName}`
+        subject: `New Portfolio Proposal Transmission from ${clientName}`,
+        submittedAt: new Date().toISOString(),
+        source: window.location.href
       };
 
       try {
-        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
+        const response = await fetch(makeWebhookUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(payload)
+          body: new URLSearchParams(payload)
         });
 
         if (response.ok) {
           if (formSuccess) {
             formSuccess.innerHTML = `
               <span class="material-symbols-outlined" style="color: var(--color-emerald); font-size: 18px;">check_circle</span>
-              <span>Transmission recorded and dispatched to ${targetEmail}. Response will be sent within 24 hours.</span>
+              <span>Transmission received. A response will be sent within 24 hours.</span>
             `;
             formSuccess.classList.add('visible');
             contactForm.reset();
